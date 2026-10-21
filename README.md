@@ -1,60 +1,143 @@
-# Agentic QA Hackathon Target Application
+# CDF Agentic QA — DemoBank Verification
 
-This repository contains the sample web application participants will test and a separate workspace for their QA agents. The target is a fictional banking dashboard with synthetic data only; it does not connect to real banks, payment networks, or financial accounts.
+**AI-powered specification-driven quality assurance using Gemini, Python, Playwright, and deterministic verification.**
 
-Before you start the hackathon challenge, please make sure to fork the repository.
+Developed for the Community Dreams Foundation Agentic QA Hackathon, October 21, 2026.
 
-## Repository layout
+## Overview
+
+This project implements an AI-assisted QA system that reads the DemoBank Product Requirements Document (PRD), extracts traceable acceptance criteria, executes real browser scenarios, validates resulting application state, and produces evidence-backed **PASSED / FAILED / UNVERIFIED** verdicts.
+
+The central design principle is simple: **a successful click is not proof that a requirement passed.**
+
+## Demonstrated Results
+
+| Metric | Result |
+|---|---:|
+| Traceable PRD requirements | 32 |
+| Implemented test scenarios | 6 |
+| Distinct requirements exercised | 5 |
+| Passed scenarios | 4 |
+| Failed scenarios | 2 |
+| Passed requirements | 3 |
+| Failed requirements | 2 |
+| Unverified requirements | 27 |
+| Blocked executions | 0 |
+
+### Reproduced Defects
+
+**PRD-023 — Inclusive Date Filtering**
+
+A single-day transaction filter omitted a transaction on the selected boundary date, despite the PRD requiring inclusive dates.
+
+**PRD-014 — Zero-Amount Transfer Validation**
+
+DemoBank accepted a zero-value transfer, displayed success, and created a transaction record instead of rejecting the invalid request.
+
+Both findings were reproduced against the live browser application using deterministic database resets.
+
+## Architecture
 
 ```text
-Agentic-AQ-Hackathon
-├── README.md
-├── test-website/
-│   ├── PRD.md
-│   ├── README.md
-│   ├── backend/       # target API service source
-│   ├── frontend/      # target browser app source
-│   └── database/      # target database migrations and seed data
-└── agent/
-    └── README.md      # participant QA agent workspace
+DemoBank PRD.md
+       |
+       v
+Requirement Extraction
+       |
+       v
+Gemini Acceptance-Criteria Enrichment
+       |
+       v
+Traceable Scenario Plan
+       |
+       v
+Playwright Browser Execution
+       |
+       v
+Deterministic State Verification
+       |
+       v
+Evidence Collection
+       |
+       v
+QA Audit Report + Cost Breakdown
 ```
 
-`test-website/` is the application under test. Its PRD is the behavioral contract: your agent should decide whether the running site satisfies it. `agent/` is where your team builds its QA system. The sample app will be hosted separately; the organizers will provide its URL.
+### Technology Stack
 
-## Challenge
+- **Python:** Agent implementation and orchestration
+- **Gemini 3.5 Flash-Lite:** Requirement interpretation
+- **Playwright:** Real browser automation
+- **Pydantic:** Typed schemas and structured results
+- **PostgreSQL / Docker:** Deterministic test-state reset
+- **React / FastAPI:** Supplied DemoBank application
+- **Pytest:** Deterministic oracle unit tests
 
-Given the application URL and PRD, build an AI-powered QA agent that can:
+### Verification Strategy
 
-1. Extract verifiable requirements from the PRD.
-2. Generate and execute normal, negative, and edge-case scenarios.
-3. Explore and operate the web application autonomously.
-4. Compare observed behavior with expected behavior.
-5. Report passed, failed, and unverified requirements with reproducible evidence.
+The system uses deterministic oracles to verify application behavior, including UI-to-API balance agreement, protected-route access, inclusive date filtering, and invalid-transfer rejection with no unintended state changes.
 
-The core question is: **Does the application behave the way its specification says it should?**
+Execution errors are distinguished from application defects. Requirements without sufficient evidence receive an **UNVERIFIED** verdict.
 
-## What to submit
+## LLM Cost Breakdown
 
-- A public GitHub or GitLab repository containing your agent source, setup instructions, and an architectural README.
-- A 3–5 minute walkthrough showing the agent reading the specification, operating the site, and producing results.
-- An exported QA audit report with requirement-level results, bug evidence and reproduction steps, and an estimated API/token cost breakdown.
+| Metric | Demonstrated Run |
+|---|---:|
+| Model | Gemini 3.5 Flash-Lite |
+| LLM API calls | 1 |
+| Input tokens | 1,378 |
+| Output tokens | 2,522 |
+| Estimated paid-tier equivalent | $0.0067184 |
+| Deterministic replay LLM cost | $0 |
 
-Do not submit credentials, real personal data, or secrets. The target uses fake data. Do not attempt denial-of-service testing or access infrastructure outside the supplied application.
+The dollar amount is a configured pricing estimate, not a confirmed billing charge.
 
-## Judging rubric
+## Run the Project
 
-| Criterion | Weight | What judges look for |
-|---|---:|---|
-| Accuracy and defect detection | 30% | Finds real defects and missing requirements with few false positives. |
-| Evaluation and verification rigor | 25% | Tests positive, negative, and edge-case behavior and supports its verdicts. |
-| Cost of running the agent | 20% | Reports practical model/API cost and uses resources efficiently. |
-| Autonomous resilience | 15% | Handles async UI changes and unexpected states without brittle scripts. |
-| Evidence and actionability | 10% | Gives useful screenshots, observed values, and reproduction steps. |
+See [Agent Architecture and Setup](agent/README.md) for the complete installation instructions.
 
-## Target application notes
+Start DemoBank's PostgreSQL database, FastAPI backend, and React frontend first.
 
-The application offers a visible **Enter Demo** action; no account or password is needed. All data is synthetic and isolated to the demo. Read [`test-website/PRD.md`](test-website/PRD.md) as the source of expected behavior. The site is intentionally imperfect, so a successful click is not proof that a requirement passed. Verify resulting balances, transaction records, filters, and error states.
+From the `agent/` directory, install dependencies:
 
-## Agent workspace
+```powershell
+py -m pip install -r requirements.txt
+py -m playwright install chromium
+```
 
-Use the `agent/` directory for your project, or link your own repository there. Keep the target application and QA agent logically separate. See [`agent/README.md`](agent/README.md) for submission expectations.
+Run without an LLM:
+
+```powershell
+py -m demobank_qa --no-llm --headed
+```
+
+Run with Gemini requirement enrichment:
+
+```powershell
+py -m demobank_qa --model gemini-3.5-flash-lite --headed --out qa_output_submission
+```
+
+Configure `GEMINI_API_KEY` locally in `agent/.env` for Gemini access. Never commit the API key.
+
+## QA Audit and Evidence
+
+- [Final QA Audit Report](agent/qa_output_submission/report.md)
+- [JSON Results](agent/qa_output_submission/report.json)
+- [HTML Report Source](agent/qa_output_submission/report.html)
+- [Agent Source Code](agent/demobank_qa/)
+- [Product Requirements](test-website/PRD.md)
+- [Setup and Architecture](agent/README.md)
+
+## Limitations
+
+This hackathon MVP supports six predefined browser verification scenarios covering five distinct requirements. Other requirements remain UNVERIFIED.
+
+Gemini enriches requirement interpretation, but the runnable scenario library is predefined rather than automatically generated for arbitrary websites.
+
+The executor uses deterministic verification and does not implement a general-purpose LLM recovery or replanning loop.
+
+## Acknowledgments
+
+The DemoBank target application and hackathon specification originate from the [Community Dreams Foundation Agentic QA Hackathon Kit](https://github.com/Community-Dreams-Foundation/Agentic-QA-Hackathon-kit).
+
+All banking data used for testing is synthetic.
