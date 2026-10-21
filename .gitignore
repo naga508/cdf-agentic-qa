@@ -1,7 +1,27 @@
+# Operating system
 .DS_Store
+Thumbs.db
 
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# Python environments and caches
 .venv/
+venv/
 __pycache__/
 *.py[cod]
 *.egg-info/
+.pytest_cache/
+
+# Node.js dependencies
+node_modules/
+
+# Intermediate QA outputs
+agent/qa_output/
+agent/qa_output_gemini_test/
+agent/qa_output_llm/
+agent/qa_output_verified/
+
+# Final QA submission is intentionally tracked
