@@ -1,0 +1,14 @@
+[
+  {
+    "id": "login",
+    "requirement_id": "PRD-002",
+    "kind": "normal",
+    "description": "Demo session begins without password; dashboard and active user visible.",
+    "oracle": "authenticated_dashboard",
+    "steps": [
+      "Navigate to landing",
+      "Click Enter Demo",
+      "Assert dashboard and active customer"
+    ]
+  }
+]

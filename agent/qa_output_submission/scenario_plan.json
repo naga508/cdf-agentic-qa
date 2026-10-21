@@ -1,0 +1,78 @@
+[
+  {
+    "id": "login",
+    "requirement_id": "PRD-002",
+    "kind": "normal",
+    "description": "Demo session begins without password; dashboard and active user visible.",
+    "oracle": "authenticated_dashboard",
+    "steps": [
+      "Navigate to landing",
+      "Click Enter Demo",
+      "Assert dashboard and active customer"
+    ]
+  },
+  {
+    "id": "dashboard",
+    "requirement_id": "PRD-007",
+    "kind": "normal",
+    "description": "Both displayed account balances/identities agree with authenticated API and use USD format.",
+    "oracle": "account_values",
+    "steps": [
+      "Enter Demo",
+      "Read two account cards",
+      "Compare rendered balances with API"
+    ]
+  },
+  {
+    "id": "logout",
+    "requirement_id": "PRD-004",
+    "kind": "negative",
+    "description": "Protected route after logout redirects to landing/access-required.",
+    "oracle": "session_gate",
+    "steps": [
+      "Enter Demo",
+      "Click Log out",
+      "Navigate directly to /dashboard",
+      "Assert access blocked"
+    ]
+  },
+  {
+    "id": "single_day",
+    "requirement_id": "PRD-023",
+    "kind": "edge",
+    "description": "History filtered to a one-day range includes a known transaction on that day.",
+    "oracle": "inclusive_date",
+    "steps": [
+      "Enter Demo",
+      "Get an existing transaction and its Pacific date",
+      "Apply same-day start/end filters",
+      "Assert transaction is present"
+    ]
+  },
+  {
+    "id": "zero",
+    "requirement_id": "PRD-014",
+    "kind": "negative",
+    "description": "Zero transfer rejected with clear feedback; balances and transaction IDs unchanged.",
+    "oracle": "reject_no_side_effect",
+    "steps": [
+      "Enter Demo",
+      "Read balances/transactions",
+      "Submit transfer amount 0",
+      "Assert rejection and no state change"
+    ]
+  },
+  {
+    "id": "precision",
+    "requirement_id": "PRD-014",
+    "kind": "edge",
+    "description": "Three-decimal transfer rejected; balances and transaction IDs unchanged.",
+    "oracle": "reject_no_side_effect",
+    "steps": [
+      "Enter Demo",
+      "Read balances/transactions",
+      "Submit transfer amount 1.234",
+      "Assert rejection and no state change"
+    ]
+  }
+]

@@ -1,0 +1,731 @@
+{
+  "generated_at": "2026-10-21T19:26:39.498909+00:00",
+  "extraction_mode": "deterministic PRD parser (--no-llm)",
+  "summary": {
+    "total_requirements": 32,
+    "checked_scenarios": 6,
+    "passed_requirements": 3,
+    "failed_requirements": 2,
+    "unverified_requirements": 27
+  },
+  "requirements": [
+    {
+      "id": "PRD-001",
+      "section": "Users and access",
+      "source_quote": "The target has one seeded demo customer.",
+      "description": "The target has one seeded demo customer.",
+      "acceptance_criteria": [
+        "The target has one seeded demo customer."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-002",
+      "section": "Users and access",
+      "source_quote": "The landing page provides a clearly labeled **Enter Demo** action. It opens the demo dashboard without requiring a password or real identity information.",
+      "description": "The landing page provides a clearly labeled Enter Demo action. It opens the demo dashboard without requiring a password or real identity information.",
+      "acceptance_criteria": [
+        "The landing page provides a clearly labeled **Enter Demo** action. It opens the demo dashboard without requiring a password or real identity information."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-003",
+      "section": "Users and access",
+      "source_quote": "The header identifies the active demo customer and provides a **Log out** action.",
+      "description": "The header identifies the active demo customer and provides a Log out action.",
+      "acceptance_criteria": [
+        "The header identifies the active demo customer and provides a **Log out** action."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-004",
+      "section": "Users and access",
+      "source_quote": "Logging out returns the user to the landing page. Protected dashboard views should not remain usable after logout; direct navigation to them should return the user to the landing page or an access-required state.",
+      "description": "Logging out returns the user to the landing page. Protected dashboard views should not remain usable after logout; direct navigation to them should return the user to the landing page or an access-required state.",
+      "acceptance_criteria": [
+        "Logging out returns the user to the landing page. Protected dashboard views should not remain usable after logout; direct navigation to them should return the user to the landing page or an access-required state."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-005",
+      "section": "Users and access",
+      "source_quote": "Refreshing while in a valid demo session should preserve that session. A logged-out user must not regain access merely by refreshing a protected page.",
+      "description": "Refreshing while in a valid demo session should preserve that session. A logged-out user must not regain access merely by refreshing a protected page.",
+      "acceptance_criteria": [
+        "Refreshing while in a valid demo session should preserve that session. A logged-out user must not regain access merely by refreshing a protected page."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-006",
+      "section": "Dashboard and accounts",
+      "source_quote": "The dashboard shows the customer's checking and savings accounts.",
+      "description": "The dashboard shows the customer's checking and savings accounts.",
+      "acceptance_criteria": [
+        "The dashboard shows the customer's checking and savings accounts."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-007",
+      "section": "Dashboard and accounts",
+      "source_quote": "Each account displays a readable account name, a masked account identifier, account type, and current available balance in USD.",
+      "description": "Each account displays a readable account name, a masked account identifier, account type, and current available balance in USD.",
+      "acceptance_criteria": [
+        "Each account displays a readable account name, a masked account identifier, account type, and current available balance in USD."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-008",
+      "section": "Dashboard and accounts",
+      "source_quote": "Balances are displayed to two decimal places. The UI must not expose a full account identifier.",
+      "description": "Balances are displayed to two decimal places. The UI must not expose a full account identifier.",
+      "acceptance_criteria": [
+        "Balances are displayed to two decimal places. The UI must not expose a full account identifier."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-009",
+      "section": "Dashboard and accounts",
+      "source_quote": "Selecting an account opens an account detail view with its current balance and related transaction history.",
+      "description": "Selecting an account opens an account detail view with its current balance and related transaction history.",
+      "acceptance_criteria": [
+        "Selecting an account opens an account detail view with its current balance and related transaction history."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-010",
+      "section": "Dashboard and accounts",
+      "source_quote": "Account balances shown on the dashboard and detail view must agree with the latest successful transactions.",
+      "description": "Account balances shown on the dashboard and detail view must agree with the latest successful transactions.",
+      "acceptance_criteria": [
+        "Account balances shown on the dashboard and detail view must agree with the latest successful transactions."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-011",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The user can transfer funds between the checking and savings accounts owned by the demo customer.",
+      "description": "The user can transfer funds between the checking and savings accounts owned by the demo customer.",
+      "acceptance_criteria": [
+        "The user can transfer funds between the checking and savings accounts owned by the demo customer."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-012",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The transfer form includes source account, destination account, amount, and an optional memo.",
+      "description": "The transfer form includes source account, destination account, amount, and an optional memo.",
+      "acceptance_criteria": [
+        "The transfer form includes source account, destination account, amount, and an optional memo."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-013",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The source and destination must be different accounts. Same-account transfers must be rejected with a clear explanation and must not alter balances or create a transaction.",
+      "description": "The source and destination must be different accounts. Same-account transfers must be rejected with a clear explanation and must not alter balances or create a transaction.",
+      "acceptance_criteria": [
+        "The source and destination must be different accounts. Same-account transfers must be rejected with a clear explanation and must not alter balances or create a transaction."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-014",
+      "section": "Transfers between owned accounts",
+      "source_quote": "Amount must be a positive number greater than zero, with no more than two digits after the decimal point. Blank, zero, negative, non-numeric, and over-precision values must be rejected with a clear validation message. Rejected input must not create a transaction or change balances.",
+      "description": "Amount must be a positive number greater than zero, with no more than two digits after the decimal point. Blank, zero, negative, non-numeric, and over-precision values must be rejected with a clear validation message. Rejected input must not create a transaction or change balances.",
+      "acceptance_criteria": [
+        "Amount must be a positive number greater than zero, with no more than two digits after the decimal point. Blank, zero, negative, non-numeric, and over-precision values must be rejected with a clear validation message. Rejected input must not create a transaction or change balances."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-015",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The amount must not exceed the source account's available balance. If funds are insufficient, the transfer must be rejected, both balances must remain unchanged, and no completed transfer must appear in history.",
+      "description": "The amount must not exceed the source account's available balance. If funds are insufficient, the transfer must be rejected, both balances must remain unchanged, and no completed transfer must appear in history.",
+      "acceptance_criteria": [
+        "The amount must not exceed the source account's available balance. If funds are insufficient, the transfer must be rejected, both balances must remain unchanged, and no completed transfer must appear in history."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-016",
+      "section": "Transfers between owned accounts",
+      "source_quote": "A valid transfer is atomic: the source balance decreases by the amount and the destination balance increases by the same amount. No partial transfer is allowed.",
+      "description": "A valid transfer is atomic: the source balance decreases by the amount and the destination balance increases by the same amount. No partial transfer is allowed.",
+      "acceptance_criteria": [
+        "A valid transfer is atomic: the source balance decreases by the amount and the destination balance increases by the same amount. No partial transfer is allowed."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-017",
+      "section": "Transfers between owned accounts",
+      "source_quote": "A successful transfer creates one completed transfer record that can be found in both relevant account histories. The record shows the amount, date and time, source, destination, status, and memo if supplied.",
+      "description": "A successful transfer creates one completed transfer record that can be found in both relevant account histories. The record shows the amount, date and time, source, destination, status, and memo if supplied.",
+      "acceptance_criteria": [
+        "A successful transfer creates one completed transfer record that can be found in both relevant account histories. The record shows the amount, date and time, source, destination, status, and memo if supplied."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-018",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The UI reports success only after the transfer has been committed. If a transfer is rejected or fails, the UI must explain that it did not complete and must not show a success state.",
+      "description": "The UI reports success only after the transfer has been committed. If a transfer is rejected or fails, the UI must explain that it did not complete and must not show a success state.",
+      "acceptance_criteria": [
+        "The UI reports success only after the transfer has been committed. If a transfer is rejected or fails, the UI must explain that it did not complete and must not show a success state."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-019",
+      "section": "Transfers between owned accounts",
+      "source_quote": "Refreshing after a successful transfer must preserve the updated balances and transaction record.",
+      "description": "Refreshing after a successful transfer must preserve the updated balances and transaction record.",
+      "acceptance_criteria": [
+        "Refreshing after a successful transfer must preserve the updated balances and transaction record."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-020",
+      "section": "Transaction history",
+      "source_quote": "The user can view a combined transaction history and account-specific history.",
+      "description": "The user can view a combined transaction history and account-specific history.",
+      "acceptance_criteria": [
+        "The user can view a combined transaction history and account-specific history."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-021",
+      "section": "Transaction history",
+      "source_quote": "Each row shows date and time, description or memo, transaction type, amount, status, and relevant account. Amount direction should be clear for deposits, withdrawals, and transfers.",
+      "description": "Each row shows date and time, description or memo, transaction type, amount, status, and relevant account. Amount direction should be clear for deposits, withdrawals, and transfers.",
+      "acceptance_criteria": [
+        "Each row shows date and time, description or memo, transaction type, amount, status, and relevant account. Amount direction should be clear for deposits, withdrawals, and transfers."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-022",
+      "section": "Transaction history",
+      "source_quote": "The user can filter history by account, transaction type, status, and date range. When filters are applied, every displayed row must satisfy all selected filters.",
+      "description": "The user can filter history by account, transaction type, status, and date range. When filters are applied, every displayed row must satisfy all selected filters.",
+      "acceptance_criteria": [
+        "The user can filter history by account, transaction type, status, and date range. When filters are applied, every displayed row must satisfy all selected filters."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-023",
+      "section": "Transaction history",
+      "source_quote": "The start and end dates are inclusive. A transaction occurring on either boundary date must be included when it matches the other filters.",
+      "description": "The start and end dates are inclusive. A transaction occurring on either boundary date must be included when it matches the other filters.",
+      "acceptance_criteria": [
+        "The start and end dates are inclusive. A transaction occurring on either boundary date must be included when it matches the other filters."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-024",
+      "section": "Transaction history",
+      "source_quote": "An empty result set must show a clear empty state, not an error or unrelated transactions.",
+      "description": "An empty result set must show a clear empty state, not an error or unrelated transactions.",
+      "acceptance_criteria": [
+        "An empty result set must show a clear empty state, not an error or unrelated transactions."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-025",
+      "section": "Transaction history",
+      "source_quote": "Clearing filters restores the unfiltered history.",
+      "description": "Clearing filters restores the unfiltered history.",
+      "acceptance_criteria": [
+        "Clearing filters restores the unfiltered history."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-026",
+      "section": "Profile",
+      "source_quote": "A profile view displays only synthetic demo-customer details, such as display name and a masked email address.",
+      "description": "A profile view displays only synthetic demo-customer details, such as display name and a masked email address.",
+      "acceptance_criteria": [
+        "A profile view displays only synthetic demo-customer details, such as display name and a masked email address."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-027",
+      "section": "Profile",
+      "source_quote": "The view must not reveal passwords, authentication tokens, full account identifiers, or data belonging to another user.",
+      "description": "The view must not reveal passwords, authentication tokens, full account identifiers, or data belonging to another user.",
+      "acceptance_criteria": [
+        "The view must not reveal passwords, authentication tokens, full account identifiers, or data belonging to another user."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-028",
+      "section": "General interface behavior",
+      "source_quote": "The target works in a current desktop browser at a 1280 × 800 viewport and remains usable at narrower widths.",
+      "description": "The target works in a current desktop browser at a 1280 × 800 viewport and remains usable at narrower widths.",
+      "acceptance_criteria": [
+        "The target works in a current desktop browser at a 1280 × 800 viewport and remains usable at narrower widths."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-029",
+      "section": "General interface behavior",
+      "source_quote": "Interactive controls have readable labels and communicate loading, success, validation, and failure states.",
+      "description": "Interactive controls have readable labels and communicate loading, success, validation, and failure states.",
+      "acceptance_criteria": [
+        "Interactive controls have readable labels and communicate loading, success, validation, and failure states."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-030",
+      "section": "General interface behavior",
+      "source_quote": "A submitted action should not silently disappear. While waiting, the UI should show a loading state or otherwise prevent accidental duplicate submission.",
+      "description": "A submitted action should not silently disappear. While waiting, the UI should show a loading state or otherwise prevent accidental duplicate submission.",
+      "acceptance_criteria": [
+        "A submitted action should not silently disappear. While waiting, the UI should show a loading state or otherwise prevent accidental duplicate submission."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-031",
+      "section": "General interface behavior",
+      "source_quote": "Navigation links and buttons lead to the labeled destination or perform the labeled action.",
+      "description": "Navigation links and buttons lead to the labeled destination or perform the labeled action.",
+      "acceptance_criteria": [
+        "Navigation links and buttons lead to the labeled destination or perform the labeled action."
+      ],
+      "preconditions": []
+    },
+    {
+      "id": "PRD-032",
+      "section": "General interface behavior",
+      "source_quote": "A recoverable error must leave the user able to retry or return to the dashboard.",
+      "description": "A recoverable error must leave the user able to retry or return to the dashboard.",
+      "acceptance_criteria": [
+        "A recoverable error must leave the user able to retry or return to the dashboard."
+      ],
+      "preconditions": []
+    }
+  ],
+  "traceability": [
+    {
+      "id": "PRD-001",
+      "section": "Users and access",
+      "source_quote": "The target has one seeded demo customer.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-002",
+      "section": "Users and access",
+      "source_quote": "The landing page provides a clearly labeled **Enter Demo** action. It opens the demo dashboard without requiring a password or real identity information.",
+      "verdict": "PASSED",
+      "scenario_ids": [
+        "login"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PRD-003",
+      "section": "Users and access",
+      "source_quote": "The header identifies the active demo customer and provides a **Log out** action.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-004",
+      "section": "Users and access",
+      "source_quote": "Logging out returns the user to the landing page. Protected dashboard views should not remain usable after logout; direct navigation to them should return the user to the landing page or an access-required state.",
+      "verdict": "PASSED",
+      "scenario_ids": [
+        "logout"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PRD-005",
+      "section": "Users and access",
+      "source_quote": "Refreshing while in a valid demo session should preserve that session. A logged-out user must not regain access merely by refreshing a protected page.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-006",
+      "section": "Dashboard and accounts",
+      "source_quote": "The dashboard shows the customer's checking and savings accounts.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-007",
+      "section": "Dashboard and accounts",
+      "source_quote": "Each account displays a readable account name, a masked account identifier, account type, and current available balance in USD.",
+      "verdict": "PASSED",
+      "scenario_ids": [
+        "dashboard"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PRD-008",
+      "section": "Dashboard and accounts",
+      "source_quote": "Balances are displayed to two decimal places. The UI must not expose a full account identifier.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-009",
+      "section": "Dashboard and accounts",
+      "source_quote": "Selecting an account opens an account detail view with its current balance and related transaction history.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-010",
+      "section": "Dashboard and accounts",
+      "source_quote": "Account balances shown on the dashboard and detail view must agree with the latest successful transactions.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-011",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The user can transfer funds between the checking and savings accounts owned by the demo customer.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-012",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The transfer form includes source account, destination account, amount, and an optional memo.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-013",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The source and destination must be different accounts. Same-account transfers must be rejected with a clear explanation and must not alter balances or create a transaction.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-014",
+      "section": "Transfers between owned accounts",
+      "source_quote": "Amount must be a positive number greater than zero, with no more than two digits after the decimal point. Blank, zero, negative, non-numeric, and over-precision values must be rejected with a clear validation message. Rejected input must not create a transaction or change balances.",
+      "verdict": "FAILED",
+      "scenario_ids": [
+        "zero",
+        "precision"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PRD-015",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The amount must not exceed the source account's available balance. If funds are insufficient, the transfer must be rejected, both balances must remain unchanged, and no completed transfer must appear in history.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-016",
+      "section": "Transfers between owned accounts",
+      "source_quote": "A valid transfer is atomic: the source balance decreases by the amount and the destination balance increases by the same amount. No partial transfer is allowed.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-017",
+      "section": "Transfers between owned accounts",
+      "source_quote": "A successful transfer creates one completed transfer record that can be found in both relevant account histories. The record shows the amount, date and time, source, destination, status, and memo if supplied.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-018",
+      "section": "Transfers between owned accounts",
+      "source_quote": "The UI reports success only after the transfer has been committed. If a transfer is rejected or fails, the UI must explain that it did not complete and must not show a success state.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-019",
+      "section": "Transfers between owned accounts",
+      "source_quote": "Refreshing after a successful transfer must preserve the updated balances and transaction record.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-020",
+      "section": "Transaction history",
+      "source_quote": "The user can view a combined transaction history and account-specific history.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-021",
+      "section": "Transaction history",
+      "source_quote": "Each row shows date and time, description or memo, transaction type, amount, status, and relevant account. Amount direction should be clear for deposits, withdrawals, and transfers.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-022",
+      "section": "Transaction history",
+      "source_quote": "The user can filter history by account, transaction type, status, and date range. When filters are applied, every displayed row must satisfy all selected filters.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-023",
+      "section": "Transaction history",
+      "source_quote": "The start and end dates are inclusive. A transaction occurring on either boundary date must be included when it matches the other filters.",
+      "verdict": "FAILED",
+      "scenario_ids": [
+        "single_day"
+      ],
+      "note": ""
+    },
+    {
+      "id": "PRD-024",
+      "section": "Transaction history",
+      "source_quote": "An empty result set must show a clear empty state, not an error or unrelated transactions.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-025",
+      "section": "Transaction history",
+      "source_quote": "Clearing filters restores the unfiltered history.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-026",
+      "section": "Profile",
+      "source_quote": "A profile view displays only synthetic demo-customer details, such as display name and a masked email address.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-027",
+      "section": "Profile",
+      "source_quote": "The view must not reveal passwords, authentication tokens, full account identifiers, or data belonging to another user.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-028",
+      "section": "General interface behavior",
+      "source_quote": "The target works in a current desktop browser at a 1280 × 800 viewport and remains usable at narrower widths.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-029",
+      "section": "General interface behavior",
+      "source_quote": "Interactive controls have readable labels and communicate loading, success, validation, and failure states.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-030",
+      "section": "General interface behavior",
+      "source_quote": "A submitted action should not silently disappear. While waiting, the UI should show a loading state or otherwise prevent accidental duplicate submission.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-031",
+      "section": "General interface behavior",
+      "source_quote": "Navigation links and buttons lead to the labeled destination or perform the labeled action.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    },
+    {
+      "id": "PRD-032",
+      "section": "General interface behavior",
+      "source_quote": "A recoverable error must leave the user able to retry or return to the dashboard.",
+      "verdict": "UNVERIFIED",
+      "scenario_ids": [],
+      "note": "No implemented verification scenario yet."
+    }
+  ],
+  "results": [
+    {
+      "scenario_id": "login",
+      "requirement_id": "PRD-002",
+      "verdict": "PASSED",
+      "execution_status": "ok",
+      "expected": "Dashboard with active customer and two account cards, no password",
+      "observed": "URL=http://localhost:5173/dashboard, active=Signed in as\nAvery Demo, cards=2",
+      "rationale": "Verified resulting dashboard state after Enter Demo.",
+      "screenshot": "screenshots/login.png",
+      "dom_snapshot": "Skip to main content\nD\nDemoBank\nDashboard\nTransactions\nTransfer\nProfile\nSigned in as\nAvery Demo\nLog out\n\nDASHBOARD\n\nWelcome, Avery Demo\nTransfer funds\nView all transactions\nYour accounts\nEveryday Checking\nChecking\n\nAccount number ending\n•••• 1042\n\nAvailable balance\n\n$4,369.75USD\n\nView details →\nRainy Day Savings\nSavings\n\nAccount number ending\n•••• 7781\n\nAvailable balance\n\n$8,275.00USD\n\nView details →\nDemoBank uses synthetic demo data only.\nService online",
+      "reproduction_steps": [
+        "Navigate to landing",
+        "Click Enter Demo",
+        "Assert dashboard and active customer"
+      ],
+      "console_errors": []
+    },
+    {
+      "scenario_id": "dashboard",
+      "requirement_id": "PRD-007",
+      "verdict": "PASSED",
+      "execution_status": "ok",
+      "expected": "Both account names, masked identifiers, and two-decimal USD balances match authenticated API",
+      "observed": "[{'name': 'Everyday Checking', 'expected_balance': '4369.75', 'shown_balance': '$4,369.75USD', 'expected_mask': '•••• 1042', 'shown_mask': '•••• 1042', 'match': True}, {'name': 'Rainy Day Savings', 'expected_balance': '8275.00', 'shown_balance': '$8,275.00USD', 'expected_mask': '•••• 7781', 'shown_mask': '•••• 7781', 'match': True}]",
+      "rationale": "UI values checked against live API values; mismatched or missing card constitutes defect.",
+      "screenshot": "screenshots/dashboard.png",
+      "dom_snapshot": "Skip to main content\nD\nDemoBank\nDashboard\nTransactions\nTransfer\nProfile\nSigned in as\nAvery Demo\nLog out\n\nDASHBOARD\n\nWelcome, Avery Demo\nTransfer funds\nView all transactions\nYour accounts\nEveryday Checking\nChecking\n\nAccount number ending\n•••• 1042\n\nAvailable balance\n\n$4,369.75USD\n\nView details →\nRainy Day Savings\nSavings\n\nAccount number ending\n•••• 7781\n\nAvailable balance\n\n$8,275.00USD\n\nView details →\nDemoBank uses synthetic demo data only.\nService online",
+      "reproduction_steps": [
+        "Enter Demo",
+        "Read two account cards",
+        "Compare rendered balances with API"
+      ],
+      "console_errors": []
+    },
+    {
+      "scenario_id": "logout",
+      "requirement_id": "PRD-004",
+      "verdict": "PASSED",
+      "execution_status": "ok",
+      "expected": "After logout, direct /dashboard navigation is blocked",
+      "observed": "Final URL=http://localhost:5173/, Enter Demo visible=True",
+      "rationale": "Direct protected-route navigation checked after logout, not just logout click.",
+      "screenshot": "screenshots/logout.png",
+      "dom_snapshot": "D\nDemoBank\nYour accounts, in one simple dashboard.\n\nExplore a fictional checking and savings account, review transaction history, and move money between your own accounts. No password needed, and every record is synthetic.\n\nAccess required: enter the demo to view that page.\nEnter Demo\n\nDemoBank never connects to a real bank or moves real money.\n\nService online",
+      "reproduction_steps": [
+        "Enter Demo",
+        "Click Log out",
+        "Navigate directly to /dashboard",
+        "Assert access blocked"
+      ],
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 401 (Unauthorized)"
+      ]
+    },
+    {
+      "scenario_id": "single_day",
+      "requirement_id": "PRD-023",
+      "verdict": "FAILED",
+      "execution_status": "ok",
+      "expected": "For inclusive date 2025-06-15, visible transaction IDs include ['00000000-0000-0000-0000-000000000208']",
+      "observed": "Visible IDs=[]; missing=['00000000-0000-0000-0000-000000000208']",
+      "rationale": "Expected IDs taken from unfiltered authenticated transaction data, not the broken date-filter response.",
+      "screenshot": "screenshots/single_day.png",
+      "dom_snapshot": "Skip to main content\nD\nDemoBank\nDashboard\nTransactions\nTransfer\nProfile\nSigned in as\nAvery Demo\nLog out\n\nHISTORY\n\nTransactions\nAccount\nAll accounts\nEveryday Checking (•••• 1042)\nRainy Day Savings (•••• 7781)\nType\nAll types\nDeposit\nWithdrawal\nTransfer\nStatus\nAll statuses\nCompleted\nPending\nFailed\nStart date\nEnd date\n\nStart and end dates are inclusive and use Pacific Time.\n\nApply filters\nClear filters\nFiltered results\nNo transactions match these filters\n\nTry a different combination, or clear the filters to see all transactions.\n\nClear filters\nDemoBank uses synthetic demo data only.\nService online",
+      "reproduction_steps": [
+        "Enter Demo",
+        "Get an existing transaction and its Pacific date",
+        "Apply same-day start/end filters",
+        "Assert transaction is present"
+      ],
+      "console_errors": []
+    },
+    {
+      "scenario_id": "zero",
+      "requirement_id": "PRD-014",
+      "verdict": "FAILED",
+      "execution_status": "ok",
+      "expected": "Amount '0' rejected with visible error; no balance change; no added transaction",
+      "observed": "error_visible=False, success_visible=True, before_balances={'00000000-0000-0000-0000-000000000101': '4369.75', '00000000-0000-0000-0000-000000000102': '8275.00'}, after_balances={'00000000-0000-0000-0000-000000000101': '4369.75', '00000000-0000-0000-0000-000000000102': '8275.00'}, added_txns=['b08e5087-cec5-4ebc-9b25-1278871c0450'], removed_txns=[]",
+      "rationale": "Invalid transfer judged on UI feedback AND actual account/transaction state.",
+      "screenshot": "screenshots/zero.png",
+      "dom_snapshot": "Skip to main content\nD\nDemoBank\nDashboard\nTransactions\nTransfer\nProfile\nSigned in as\nAvery Demo\nLog out\n\nMOVE MONEY\n\nTransfer between your accounts\nFrom account\nSelect an account\nEveryday Checking (•••• 1042) — $4,369.75\nRainy Day Savings (•••• 7781) — $8,275.00\nTo account\nSelect an account\nEveryday Checking (•••• 1042) — $4,369.75\nRainy Day Savings (•••• 7781) — $8,275.00\nAmount (USD)\n$\n\nUp to two decimal places, for example 25.00.\n\nMemo (optional)\nTransfer funds\nTransfer complete\nAmount\n$0.00\nFrom\nEveryday Checking (•••• 1042)\nTo\nRainy Day Savings (•••• 7781)\nDate & time\nOct 21, 2026, 12:26 PM PDT\nNew Everyday Checking balance\n$4,369.75\nNew Rainy Day Savings balance\n$8,275.00\nView Everyday Checking history\nView Rainy Day Savings history\nCurrent balances\nEveryday Checking (•••• 1042)\n$4,369.75\nRainy Day Savings (•••• 7781)\n$8,275.00\nDemoBank uses synthetic demo data only.\nService online",
+      "reproduction_steps": [
+        "Enter Demo",
+        "Read balances/transactions",
+        "Submit transfer amount 0",
+        "Assert rejection and no state change"
+      ],
+      "console_errors": []
+    },
+    {
+      "scenario_id": "precision",
+      "requirement_id": "PRD-014",
+      "verdict": "PASSED",
+      "execution_status": "ok",
+      "expected": "Amount '1.234' rejected with visible error; no balance change; no added transaction",
+      "observed": "error_visible=True, success_visible=False, before_balances={'00000000-0000-0000-0000-000000000101': '4369.75', '00000000-0000-0000-0000-000000000102': '8275.00'}, after_balances={'00000000-0000-0000-0000-000000000101': '4369.75', '00000000-0000-0000-0000-000000000102': '8275.00'}, added_txns=[], removed_txns=[]",
+      "rationale": "Invalid transfer judged on UI feedback AND actual account/transaction state.",
+      "screenshot": "screenshots/precision.png",
+      "dom_snapshot": "Skip to main content\nD\nDemoBank\nDashboard\nTransactions\nTransfer\nProfile\nSigned in as\nAvery Demo\nLog out\n\nMOVE MONEY\n\nTransfer between your accounts\nFrom account\nSelect an account\nEveryday Checking (•••• 1042) — $4,369.75\nRainy Day Savings (•••• 7781) — $8,275.00\nTo account\nSelect an account\nEveryday Checking (•••• 1042) — $4,369.75\nRainy Day Savings (•••• 7781) — $8,275.00\nAmount (USD)\n$\n\nUp to two decimal places, for example 25.00.\n\nAmount must be a decimal string with no more than two decimal places.\n\nMemo (optional)\nTransfer funds\nTransfer not completed\n\nAmount must be a decimal string with no more than two decimal places.\n\nNo money was moved. Your balances are unchanged.\n\nCurrent balances\nEveryday Checking (•••• 1042)\n$4,369.75\nRainy Day Savings (•••• 7781)\n$8,275.00\nDemoBank uses synthetic demo data only.\nService online",
+      "reproduction_steps": [
+        "Enter Demo",
+        "Read balances/transactions",
+        "Submit transfer amount 1.234",
+        "Assert rejection and no state change"
+      ],
+      "console_errors": [
+        "Failed to load resource: the server responded with a status of 422 (Unprocessable Content)"
+      ]
+    }
+  ],
+  "reset_log": [
+    "login: migrations+seed reset OK",
+    "dashboard: migrations+seed reset OK",
+    "logout: migrations+seed reset OK",
+    "single_day: migrations+seed reset OK",
+    "zero: migrations+seed reset OK",
+    "precision: migrations+seed reset OK"
+  ],
+  "cost": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "estimated_api_usd": 0,
+    "pricing_note": "Set INPUT_USD_PER_M_TOKENS and OUTPUT_USD_PER_M_TOKENS to estimate billed costs. Null means prices were not provided.",
+    "entries": [],
+    "replay_llm_cost_usd": 0
+  }
+}
